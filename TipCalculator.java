@@ -28,7 +28,7 @@ public class TipCalculator
 
     public void setPartySize(double partySize)
     {
-        this.partySize= partySize;
+        this.partySize = partySize;
     }
 
     public double getPartySize()
@@ -39,7 +39,7 @@ public class TipCalculator
     // Fancy methods
     public double getTotalBill()
     {
-        return this.billAmount * this.tipPercentage + this.billAmount;
+        return this.billAmount * (this.tipPercentage * .01) + this.billAmount;
     }
 
     public double getIndividualShare()
