@@ -23,11 +23,6 @@ public class Add2 extends JFrame implements ActionListener
 		});
 	}
 
-	private Add2(String title)
-	{
-		super(title);
-	}
-
 	private void CreateAndShowGUI()
 	{
 		initComponents();
