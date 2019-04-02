@@ -2,6 +2,7 @@ import java.awt.event.ActionListener;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.GridLayout;
+import javax.swing.SwingConstants;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 import javax.swing.JOptionPane;
@@ -19,10 +20,10 @@ public class TipApp extends JFrame implements ActionListener, ChangeListener
     private final JButton calculateButton = new JButton("Calculate");
     private final JButton clearButton = new JButton("Clear");
     private JTextField myJTextField = new JTextField();
-    private JSlider myJSlider = new JSlider();
+    private JSlider myJSlider = new JSlider(SwingConstants.HORIZONTAL, 0, 50, 20);
     private JSpinner myJSpinner = new JSpinner();
     private TipCalculator myTipCalculator = new TipCalculator();
-    private JPanel myJPanel = new JPanel(new GridLayout(4, 2, 5, 5));
+    private JPanel myJPanel = new JPanel(new GridLayout(6, 2, 5, 5));
 
     public static void main(String[] args)
     {
@@ -49,13 +50,23 @@ public class TipApp extends JFrame implements ActionListener, ChangeListener
 	private void initComponents()
 	{
 		myJPanel.add(new JLabel("Bill Amount"));
+        myJTextField.setText("0");
 		myJPanel.add(myJTextField);
 		myJPanel.add(new JLabel("Tip Percentage"));
+        myJSlider.setMinorTickSpacing(5);
+        myJSlider.setMajorTickSpacing(10); 
+        myJSlider.setPaintTicks(true); 
+        myJSlider.setPaintLabels(true);
 		myJPanel.add(myJSlider);
 		myJPanel.add(new JLabel("Party Size"));
+		myJSpinner.setValue(1);
 		myJPanel.add(myJSpinner);
 		myJPanel.add(calculateButton);
 		myJPanel.add(clearButton);
+		myJPanel.add(new JLabel("Total Bill (with Tip)"));
+		myJPanel.add(new JLabel("$0.00"));
+		myJPanel.add(new JLabel("Individual Share"));
+		myJPanel.add(new JLabel("$0.00"));
         add(myJPanel);
 	}
 
@@ -110,11 +121,10 @@ public class TipApp extends JFrame implements ActionListener, ChangeListener
 			myJTextField.setText("0");
 			myJSlider.setValue(20);
 			myJSpinner.setValue(1);
+            myTipCalculator.setBillAmount(0);
+            myTipCalculator.setTipPercentage(0);
+            myTipCalculator.setPartySize(0);
 		}
-
-		// These are in the wrong place for sure
-		this.calculateButton.addActionListener(this);
-		this.clearButton.addActionListener(this);
 	} 
 
 }
