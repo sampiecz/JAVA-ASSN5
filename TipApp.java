@@ -1,3 +1,15 @@
+/************************************************************
+ *                                                          *
+ *  CSCI 470-1   Assignment 5                   Spring 2019 *
+ *                                                          *
+ *  Programmer:  Samuel Piecz                               *  
+ *               z1732715                                   *
+ *                                                          * 
+ *                                                          *   
+ *                                                          *
+ *  Date Due:    4/01/19                                    *
+ *                                                          *
+ ************************************************************/ 
 import java.awt.event.ActionListener;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
